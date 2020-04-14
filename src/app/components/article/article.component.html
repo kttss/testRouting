@@ -1,0 +1,11 @@
+<img [src]="article?.photo" class="article-Image" alt="Card image cap" />
+<div class="card-body">
+  <h5 class="card-title">{{ article?.titre }}</h5>
+  <p class="card-text">
+    {{ shortContent(article?.content) }}
+    <a [routerLink]="'/articles/' + article?.id">view more</a>
+  </p>
+</div>
+<div class="card-footer">
+  <small class="text-muted">Last updated {{ gettimeFromNow(article?.creatAt) }}</small>
+</div>

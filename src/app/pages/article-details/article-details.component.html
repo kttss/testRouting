@@ -1,0 +1,10 @@
+<div class="article-details">
+  <a class="btn btn-link pl-0" routerLink="./../">Retour</a>
+  <h2 class="article-details_titre">{{ article?.titre }}</h2>
+
+  <img class="article-details_image" [src]="article?.photo" alt="" />
+  <div class="article-details_date">
+    Le {{ article?.creatAt | date: "medium" }}
+  </div>
+  <div class="article-details_text" [innerHTML]="article?.content"></div>
+</div>

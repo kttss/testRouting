@@ -3,16 +3,36 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContainerComponent } from './pages/container/container.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
+import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
+import { ArticleComponent } from './components/article/article.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeData } from './services/fake-api/fake-data';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContainerComponent,
+    NavbarComponent,
+    HomeComponent,
+    ArticlesComponent,
+    ArticleDetailsComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(FakeData),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

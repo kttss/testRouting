@@ -1,0 +1,25 @@
+.article-details {
+  margin-top: 30px;
+
+  >.article-details_titre {
+    font-size: 30px;
+    color: rgb(250, 194, 194);
+    margin-bottom: 20px;
+  }
+
+  >.article-details_image {
+    width: 450px;
+    height: 240px;
+    margin-bottom: 10px;
+  }
+
+  >.article-details_text {
+    font-size: 18px;
+  }
+
+  >.article-details_date {
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+}

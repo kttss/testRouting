@@ -1,0 +1,10 @@
+<nav class="navbar fixed-top  navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">Smile</a>
+  <div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let item of menu">
+        <a class="nav-link" [routerLink]="item.root" routerLinkActive="active">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

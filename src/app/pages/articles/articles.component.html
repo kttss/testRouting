@@ -1,0 +1,17 @@
+<div class="articles">
+  <div class="filter-section">
+    <form [formGroup]="filterForm">
+      filter Par Category:
+      <select class="form-control" id="category" formControlName="category">
+        <option value="all">all</option>
+        <option *ngFor="let item of listCategorys" [value]="item?.id">{{item?.name}}</option>
+      </select>
+      Results <span class="badge badge-primary">{{listArticles.length || 0}}</span> Articles
+    </form>
+  </div>
+  <div class="card-deck">
+    <ng-container *ngFor="let item of listArticles">
+      <app-article class="card" [article]="item"></app-article>
+    </ng-container>
+  </div>
+</div>
