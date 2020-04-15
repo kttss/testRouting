@@ -1,0 +1,38 @@
+<h2 *ngIf="!isEdit" class="pt-3">Creation de Nouveau Article</h2>
+<h2 *ngIf="isEdit" class="pt-3">Modification Article</h2>
+
+
+<form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="titre">Titre *</label>
+      <app-form-field [control]="articleForm.controls.titre">
+        <input type="email" class="form-control" formControlName="titre" id="titre"
+          [class.is-invalid]="checkInValid(articleForm?.controls?.titre)" placeholder="Titre">
+      </app-form-field>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="category">Category *</label>
+      <app-form-field [control]="articleForm.controls.category">
+        <select id="category" class="form-control" formControlName="category"
+          [class.is-invalid]="checkInValid(articleForm?.controls?.category)">
+          <option *ngFor="let item of listCategorys" [value]="item?.id">{{item?.name}}</option>
+        </select></app-form-field>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Photo *</label>
+    <app-form-field [control]="articleForm.controls.photo">
+      <input type="text" class="form-control" [class.is-invalid]="checkInValid(articleForm?.controls?.photo)"
+        id="inputAddress" formControlName="photo" placeholder="URL">
+    </app-form-field>
+  </div>
+  <div class="form-group">
+    <label for="content">Content *</label>
+    <app-form-field [control]="articleForm.controls.content">
+      <textarea [class.is-invalid]="checkInValid(articleForm?.controls?.content)" id="content" class="form-control"
+        cols="30" formControlName="content" rows="8"></textarea>
+    </app-form-field>
+  </div>
+  <button type="submit" class="btn btn-primary">{{ isEdit ? 'Modifier' : 'Ajouter'}}</button>
+</form>

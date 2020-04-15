@@ -1,5 +1,11 @@
 .articles {
   padding-top: 30px;
+
+  .btn-new {
+    position: absolute;
+    right: 20px;
+    margin-top: 5px;
+  }
 }
 
 .filter-section {
@@ -9,8 +15,9 @@
     width: auto;
     display: inline-block;
   }
-}
 
+
+}
 
 .card {
   max-width: 300px;

@@ -1,11 +1,9 @@
 <h2 class="pt-4">last Article</h2>
 
 <div class="article">
-  <h2 class="article_titre">{{ article?.titre }}</h2>
+  <h2 class="article__titre">{{ article?.titre }}</h2>
 
-  <img class="article_image" [src]="article?.photo" alt="" />
-  <div class="article_date">
-    Le {{ article?.creatAt | date: "medium" }}
-  </div>
-  <div class="article_text" [innerHTML]="article?.content"></div>
+  <img class="article__image" [src]="article?.photo" alt="" />
+  <div class="article__date">Le {{ article?.creatAt | date: "medium" }}</div>
+  <div class="article__text" [innerHTML]="article?.content"></div>
 </div>

@@ -4,6 +4,7 @@ import { ContainerComponent } from './pages/container/container.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
+import { ArticleFormComponent } from './pages/article-form/article-form.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
       {
         path: 'articles/:id',
         component: ArticleDetailsComponent,
+      },
+      {
+        path: 'new-article',
+        component: ArticleFormComponent,
+      },
+      {
+        path: 'edit-article/:id',
+        component: ArticleFormComponent,
       },
     ],
   },

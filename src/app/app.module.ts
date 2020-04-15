@@ -13,6 +13,10 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeData } from './services/fake-api/fake-data';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ArticleFormComponent } from './pages/article-form/article-form.component';
+import { FormFieldComponent } from './components/form-field/form-field.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ArticlesComponent,
     ArticleDetailsComponent,
     ArticleComponent,
+    ArticleFormComponent,
+    FormFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

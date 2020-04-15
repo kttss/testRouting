@@ -1,23 +1,23 @@
 .article {
   margin-top: 30px;
 
-  >.article_titre {
+  >.article__titre {
     font-size: 30px;
     color: rgb(250, 194, 194);
     margin-bottom: 20px;
   }
 
-  >.article_image {
+  >.article__image {
     width: 450px;
     height: 240px;
     margin-bottom: 10px;
   }
 
-  >.articles_text {
+  >.articles__text {
     font-size: 18px;
   }
 
-  >.article_date {
+  >.article__date {
     font-size: 15px;
     font-style: italic;
     margin-bottom: 30px;

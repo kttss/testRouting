@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NetworkService } from '../network/network.service';
+import { Article } from 'src/app/models/article';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +19,13 @@ export class ArticleService {
   }
   getAllArticles() {
     return this.network.get(this.urlArticle);
+  }
+
+  addArticle(article: Article) {
+    return this.network.post(this.urlArticle, article);
+  }
+
+  updateArticle(article: Article) {
+    return this.network.put(this.urlArticle, article);
   }
 }
