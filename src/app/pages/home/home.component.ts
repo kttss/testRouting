@@ -8,12 +8,18 @@ import { Article } from 'src/app/models/article';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public article: Article;
+  public articles: Article[] = [];
   constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    this.articleService.getlastArticle().then((data: Article) => {
-      this.article = data;
+    this.articleService.getAllArticles().then((data) => {
+      this.articles = data;
     });
+  }
+
+  shortContent(value: string): string {
+    return value && value.length > 200
+      ? value.substring(0, 100) + '...'
+      : value;
   }
 }

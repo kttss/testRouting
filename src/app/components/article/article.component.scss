@@ -1,3 +1,15 @@
-  .article-Image {
-    height: 180px;
-  }
+.article-Image {
+  height: 180px;
+  width: 100%;
+}
+
+.view-counts {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #b8b8d6;
+  font-weight: 500;
+  padding: 4px 8px;
+  background: #564c4cde;
+  border-top-left-radius: 20px;
+}

@@ -14,7 +14,12 @@ export class NetworkService {
   public post(url: string, body: any): Promise<any> {
     return this.http.post(url, body).toPromise();
   }
+
   public put(url: string, body: any): Promise<any> {
     return this.http.put(url, body).toPromise();
+  }
+
+  public delete(url: string): Promise<any> {
+    return this.http.delete(url).toPromise();
   }
 }

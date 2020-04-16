@@ -1,9 +1,32 @@
-<h2 class="pt-4">last Article</h2>
+<div class="row">
+  <div class="col-md-12 mt-3">
+    <h1>Last Articles</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5 col-lg-5">
+    <div class="featured-article">
+      <a routerLink="/articles/{{articles[0]?.id}}">
+        <img [src]="articles[0]?.photo" alt="" />
+      </a>
+      <div class="block-title">
+        <h2>{{articles[0]?.titre}}</h2>
+        <p class="description"><small>{{shortContent(articles[0]?.content)}}</small></p>
+      </div>
+    </div>
+  </div>
 
-<div class="article">
-  <h2 class="article__titre">{{ article?.titre }}</h2>
-
-  <img class="article__image" [src]="article?.photo" alt="" />
-  <div class="article__date">Le {{ article?.creatAt | date: "medium" }}</div>
-  <div class="article__text" [innerHTML]="article?.content"></div>
+  <div class="col-md-7 col-lg-7">
+    <ul class="main-list">
+      <li class="media" *ngFor="let item of articles.slice(1,4)">
+        <a routerLink="/articles/{{item?.id}}">
+          <img [src]="item?.photo" alt="..." />
+        </a>
+        <div class="media-body">
+          <h3>{{item?.titre}}</h3>
+          <p class="description">{{shortContent(item?.content)}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

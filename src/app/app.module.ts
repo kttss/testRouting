@@ -17,7 +17,8 @@ import { ArticleFormComponent } from './pages/article-form/article-form.componen
 import { FormFieldComponent } from './components/form-field/form-field.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     ArticleComponent,
     ArticleFormComponent,
     FormFieldComponent,
+    DeleteModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

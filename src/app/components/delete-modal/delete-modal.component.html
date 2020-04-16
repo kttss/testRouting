@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Suppression</h1>
+<div mat-dialog-content>
+  <p>Id Article: {{data}}
+    <br>
+    vous voulez supprimer cet article?</p>
+</div>
+<div class="float-right" mat-dialog-actions>
+  <button class="btn btn-link" (click)="no()">Non</button>
+  <button class="btn btn-primary" (click)="yes()" cdkFocusInitial>Oui</button>
+</div>

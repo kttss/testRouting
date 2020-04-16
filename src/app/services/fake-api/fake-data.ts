@@ -15,6 +15,8 @@ export class FakeData implements InMemoryDbService {
 
         Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sic munitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt, non sunt tamen ab earum spe causae diligendi profectae.`,
         photo: 'https://i.picsum.photos/id/0/218/180.jpg',
+        like: 12,
+        view: 23,
         creatAt: new Date('2020-04-13T20:16:37'),
       },
       {
@@ -24,6 +26,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/168/218/180.jpg',
+        like: 16,
+        view: 30,
         creatAt: new Date('2020-04-12T21:20:37'),
       },
       {
@@ -33,6 +37,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/120/218/180.jpg',
+        like: 25,
+        view: 40,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -42,6 +48,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/50/218/180.jpg',
+        like: 5,
+        view: 35,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -51,6 +59,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/24/218/180.jpg',
+        like: 11,
+        view: 41,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -60,6 +70,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/22/218/180.jpg',
+        like: 19,
+        view: 54,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -69,6 +81,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/12/218/180.jpg',
+        like: 13,
+        view: 24,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -78,6 +92,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.`,
         photo: 'https://i.picsum.photos/id/15/218/180.jpg',
+        like: 18,
+        view: 33,
         creatAt: new Date('2020-03-15T20:16:37'),
       },
       {
@@ -87,6 +103,8 @@ export class FakeData implements InMemoryDbService {
         content: `This is a wider card with supporting text below as a natural lead-in to additional content.
           This content is a little bit longer.`,
         photo: 'https://picsum.photos/id/188/700/360',
+        like: 21,
+        view: 57,
         creatAt: new Date('2020-04-14T16:00:37'),
       },
     ];

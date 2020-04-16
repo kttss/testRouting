@@ -1,11 +1,16 @@
 <div class="article-details">
-  <a class="btn btn-link pl-0" routerLink="./../">Retour</a>
-  <h2 class="article-details__titre">{{ article?.titre }}</h2>
+  <a class="btn btn-link pl-0 text-primary" (click)="back()">Retour</a>
+
 
   <img class="article-details__image" [src]="article?.photo" alt="" />
+  <h2 class="article-details__titre">{{ article?.titre }}</h2>
   <div class="article-details__date">
     Le {{ article?.creatAt | date: "medium" }}
+    <span>- ( {{article?.like}} liked )</span>
+    <button *ngIf="!liked" class="btn btn-link" (click)="like()">Like</button>
+    <button class="btn btn-link" routerLink="/edit-article/{{article?.id}}">Edit</button>
+    <button class="btn btn-link" (click)="openModal()">Supprimer</button>
   </div>
   <div class="article-details_text" [innerHTML]="article?.content"></div>
-  <button class="btn btn-link" routerLink="/edit-article/{{article?.id}}">Edit Article</button>
+
 </div>

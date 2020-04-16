@@ -1,11 +1,20 @@
-<img [src]="article?.photo" class="article-Image" alt="Card image cap" />
+<div class="position-relative">
+  <img [src]="article?.photo" class="article-Image" alt="Card image cap" />
+  <div class="view-counts">
+    <span>{{article?.view}} view |</span>
+    <span> {{article?.like}} like</span>
+  </div>
+</div>
+
 <div class="card-body">
-  <h5 class="card-title">{{ article?.titre }}</h5>
+  <h2 class="card-title">{{ article?.titre }}</h2>
   <p class="card-text">
     {{ shortContent(article?.content) }}
     <a [routerLink]="'/articles/' + article?.id">view more</a>
   </p>
 </div>
 <div class="card-footer">
-  <small class="text-muted">Last updated {{ gettimeFromNow(article?.creatAt) }}</small>
+  <small class="text-muted">
+    Last updated {{ gettimeFromNow(article?.creatAt) }}
+  </small>
 </div>

@@ -4,5 +4,7 @@ export class Article {
   titre: string;
   content: string;
   photo: string;
+  view: number;
+  like: number;
   creatAt: Date;
 }

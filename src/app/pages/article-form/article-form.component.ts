@@ -38,6 +38,8 @@ export class ArticleFormComponent implements OnInit {
       ]),
       content: fbuild.control('', [Validators.required]),
       creatAt: fbuild.control(null),
+      like: fbuild.control(0),
+      view: fbuild.control(0),
     });
   }
 
