@@ -10,17 +10,18 @@
 
 .filter-section {
   margin-bottom: 30px;
-
-  #category {
-    width: auto;
-    display: inline-block;
-  }
-
-
 }
 
 .card {
   max-width: 300px;
   min-width: 300px;
   margin-bottom: 20px;
+
+  @media (max-width: 670px) {
+    max-width: 100%;
+  }
+}
+
+.min-h-50 {
+  min-height: 50px;
 }

@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ArticlesComponent implements OnInit {
   public listArticles: Article[] = [];
+  public listArticlesData: Article[] = [];
   public listCategorys: Category[] = [];
   public filterForm: FormGroup;
   constructor(
@@ -19,14 +20,7 @@ export class ArticlesComponent implements OnInit {
     private categoryService: CategoryService,
     private fbuild: FormBuilder
   ) {
-    this.filterForm = this.fbuild.group({ category: 'all' });
-    this.filterForm.controls.category.valueChanges.subscribe((value) => {
-      if (value == 'all') {
-        this.getAllArticles();
-      } else {
-        this.getArticlesByCategory(value);
-      }
-    });
+    this.filterForm = this.fbuild.group({ category: 'all', titre: '' });
   }
 
   ngOnInit(): void {
@@ -34,16 +28,40 @@ export class ArticlesComponent implements OnInit {
     this.categoryService.getListCategory().then((data: Category[]) => {
       this.listCategorys = data;
     });
+    this.filterForm.valueChanges.subscribe((data) => {
+      this.listArticles = this.getArticlesByFilter(data);
+    });
   }
 
   getAllArticles() {
     this.articleService.getAllArticles().then((list: Article[]) => {
+      this.listArticlesData = list;
       this.listArticles = list;
     });
   }
-  getArticlesByCategory(category: number) {
-    this.articleService.getArticlesByCategory(category).then((list) => {
-      this.listArticles = list;
-    });
+
+  getArticlesByFilter(data): Article[] {
+    let filter;
+    if (data.category != 'all') {
+      filter = (article) => {
+        return (
+          article.category == data.category &&
+          article.titre.toLowerCase().indexOf(data.titre.toLowerCase()) !== -1
+        );
+      };
+    } else {
+      filter = (article) => {
+        return (
+          article.titre.toLowerCase().indexOf(data.titre.toLowerCase()) !== -1
+        );
+      };
+    }
+    return this.listArticlesData.filter(filter);
+  }
+
+  getCountArticlesByCategory(category): number {
+    return this.listArticlesData.filter(
+      (article) => article.category === category
+    ).length;
   }
 }

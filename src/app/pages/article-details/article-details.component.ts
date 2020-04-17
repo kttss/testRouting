@@ -5,7 +5,6 @@ import { ArticleService } from 'src/app/services/article/article.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteModalComponent } from 'src/app/components/delete-modal/delete-modal.component';
 import { Location } from '@angular/common';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-article-details',

@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

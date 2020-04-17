@@ -13,3 +13,13 @@
   background: #564c4cde;
   border-top-left-radius: 20px;
 }
+
+.card-footer {
+  position: relative;
+
+  .btn-crud {
+    position: absolute;
+    right: 0;
+    top: 7px;
+  }
+}

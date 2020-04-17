@@ -11,6 +11,10 @@ import {
 import { Article } from 'src/app/models/article';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-article-form',
@@ -21,13 +25,17 @@ export class ArticleFormComponent implements OnInit {
   public listCategorys: Category[] = [];
   public articleForm: FormGroup;
   public isEdit: boolean = false;
+  public Editor = ClassicEditor;
+  public editorContent: string = '';
+
   constructor(
     private articleService: ArticleService,
     private categoryService: CategoryService,
     private fbuild: FormBuilder,
     private alert: ToastrService,
     private router: Router,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
+    private location: Location
   ) {
     this.articleForm = fbuild.group({
       id: fbuild.control(null),
@@ -58,8 +66,10 @@ export class ArticleFormComponent implements OnInit {
   loadArticle(id: number) {
     this.articleService.getArticlesById(id).then((data) => {
       this.articleForm.setValue(data);
+      this.editorContent = data.content;
     });
   }
+
   checkInValid(control: FormControl): boolean {
     return control?.invalid && (control?.touched || control?.dirty);
   }
@@ -104,5 +114,13 @@ export class ArticleFormComponent implements OnInit {
       .catch((err) => {
         this.alert.error(err, 'Error');
       });
+  }
+
+  back() {
+    this.location.back();
+  }
+
+  onChange({ editor }: ChangeEvent) {
+    this.articleForm.controls.content.setValue(editor.getData());
   }
 }
