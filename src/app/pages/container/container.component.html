@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
-<div class="container-fluid custom">
+<app-navbar *ngIf="isAuth"></app-navbar>
+<div class="container-fluid" [class.custom]="isAuth">
   <router-outlet></router-outlet>
 </div>

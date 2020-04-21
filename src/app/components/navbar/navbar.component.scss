@@ -1,3 +1,11 @@
 .nav-link.active {
   border-bottom: 2px solid #060652;
 }
+
+.dropdown:hover {
+  text-transform: none;
+  cursor: pointer;
+  > .dropdown-menu {
+    display: block;
+  }
+}

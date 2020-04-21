@@ -1,0 +1,27 @@
+<div class="login">
+
+  <div class="login__wrapper">
+    <div class="login__logo">
+      <img src="./assets/bg_smile_btn.png" alt="smile">
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="username-input">Username</label>
+        <app-form-field [control]="loginForm.controls.username">
+          <input type="text" class="form-control" [class.is-invalid]="checkInValid(loginForm?.controls?.username)"
+            id="username-input" formControlName="username">
+        </app-form-field>
+      </div>
+      <div class="form-group">
+        <label for="password-input">Password</label>
+        <app-form-field [control]="loginForm.controls.password">
+          <input type="password" class="form-control" [class.is-invalid]="checkInValid(loginForm?.controls?.password)"
+            id="password-input" formControlName="password">
+        </app-form-field>
+      </div>
+      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>

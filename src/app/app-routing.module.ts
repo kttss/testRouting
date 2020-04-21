@@ -5,39 +5,47 @@ import { HomeComponent } from './pages/home/home.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthenticationGuard } from './services/authentication/authentication.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: ContainerComponent,
     children: [
+      { path: 'login', component: LoginComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
         component: HomeComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'articles',
         component: ArticlesComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'articles/:id',
         component: ArticleDetailsComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'new-article',
         component: ArticleFormComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'edit-article/:id',
         component: ArticleFormComponent,
+        canActivate: [AuthenticationGuard],
       },
     ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

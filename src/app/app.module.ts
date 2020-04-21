@@ -20,6 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { LoginComponent } from './pages/login/login.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ArticleFormComponent,
     FormFieldComponent,
     DeleteModalComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,13 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ToastrModule.forRoot(),
     MatDialogModule,
     CKEditorModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

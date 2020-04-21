@@ -1,0 +1,21 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  >.login__wrapper {
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+
+    >.login__logo {
+      text-align: center;
+    }
+  }
+
+
+}
