@@ -1,0 +1,81 @@
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h1>paramétrage compte</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+      <div class="form-group">
+        <label for="fullname-input">Fullname</label>
+        <app-form-field [control]="userForm.controls.fullname">
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="checkInValid(userForm?.controls?.fullname)"
+            id="fullname-input"
+            formControlName="fullname"
+          />
+        </app-form-field>
+      </div>
+      <div class="form-group">
+        <label for="username-input">Username</label>
+        <app-form-field [control]="userForm.controls.username">
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="checkInValid(userForm?.controls?.username)"
+            id="username-input"
+            formControlName="username"
+          />
+        </app-form-field>
+      </div>
+      <div class="form-group form-row">
+        <div class="col">
+          <app-form-field
+            [control]="userForm.controls.password"
+            [messagePosition]="'bottom'"
+          >
+            <label for="password-input">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="password-input"
+              [class.is-invalid]="checkInValid(userForm?.controls?.password)"
+            />
+          </app-form-field>
+        </div>
+        <div class="col">
+          <app-form-field
+            [control]="userForm.controls.passwordConfirm"
+            [messagePosition]="'bottom'"
+          >
+            <label for="confirm-input">Confirm</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="passwordConfirm"
+              id="confirm-input"
+              [class.is-invalid]="
+                checkInValid(userForm?.controls?.passwordConfirm)
+              "
+            />
+          </app-form-field>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-link" routerLink="./../">
+          Retour
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h3>position sur la map</h3>
+    <div
+      class="map"
+      leaflet
+      [leafletOptions]="options"
+      [leafletLayers]="layers"
+      (leafletMapReady)="onMapReady($event)"
+      (leafletClick)="clickMap($event)"
+    ></div>
+  </div>
+</div>

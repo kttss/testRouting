@@ -1,4 +1,8 @@
-<div *ngIf="control?.invalid  && (control?.touched || control?.dirty)" class="text-danger float-right">
+<div *ngIf="messagePosition=='top' && control?.invalid  && (control?.touched || control?.dirty)"
+  class="text-danger float-right">
   {{errorMessage}}
 </div>
 <ng-content></ng-content>
+<div *ngIf="messagePosition=='bottom' && control?.invalid  && (control?.touched || control?.dirty)" class="text-danger">
+  {{errorMessage}}
+</div>

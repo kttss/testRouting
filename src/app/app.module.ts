@@ -22,7 +22,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { SignupComponent } from './pages/signup/signup.component';
+import { AccountComponent } from './pages/account/account.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +38,15 @@ import { JwtModule } from '@auth0/angular-jwt';
     FormFieldComponent,
     DeleteModalComponent,
     LoginComponent,
+    SignupComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(FakeData),
+    InMemoryWebApiModule.forRoot(FakeData, {
+      passThruUnknownUrl: true,
+    }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -55,6 +61,7 @@ import { JwtModule } from '@auth0/angular-jwt';
         },
       },
     }),
+    LeafletModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

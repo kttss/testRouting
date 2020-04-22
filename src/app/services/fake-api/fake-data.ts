@@ -117,6 +117,7 @@ export class FakeData implements InMemoryDbService {
 
     const users: User[] = [
       {
+        id: 1,
         fullname: 'Issam KATTOUSS',
         username: 'kttss',
         password: '123',

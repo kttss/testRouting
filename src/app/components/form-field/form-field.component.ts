@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
+type Position = 'top' | 'bottom';
 @Component({
   selector: 'app-form-field',
   templateUrl: './form-field.component.html',
@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class FormFieldComponent implements OnInit {
   @Input() control: FormControl = new FormControl();
+  @Input() messagePosition: Position = 'top';
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,6 +19,7 @@ export class FormFieldComponent implements OnInit {
       minlength: `Minimum length ${value.requiredLength}`,
       maxlength: `Maximum length ${value.requiredLength}`,
       pattern: 'Ce champs est invalid',
+      mustMatch: 'les mots de pass ne correspondent pas.Veuillez réessayer',
     };
     return errors[name];
   }

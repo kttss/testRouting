@@ -11,8 +11,8 @@ export class NetworkService {
     return this.http.get(url).toPromise();
   }
 
-  public post(url: string, body: any): Promise<any> {
-    return this.http.post(url, body).toPromise();
+  public post(url: string, body: any, header: any = {}): Promise<any> {
+    return this.http.post(url, body, header).toPromise();
   }
 
   public put(url: string, body: any): Promise<any> {

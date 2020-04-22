@@ -3,12 +3,7 @@
   <div class="navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngFor="let item of menu">
-        <a
-          class="nav-link"
-          [routerLink]="item.root"
-          routerLinkActive="active"
-          >{{ item.name }}</a
-        >
+        <a class="nav-link" [routerLink]="item.root" routerLinkActive="active">{{ item.name }}</a>
       </li>
     </ul>
   </div>
@@ -27,14 +22,8 @@
   </div> -->
 
   <div class="dropdown">
-    <button
-      class="btn btn-link dropdown-toggle"
-      type="button"
-      id="dropdownMenuButton"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
+    <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false" routerLink="/account">
       {{ user?.fullname }}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

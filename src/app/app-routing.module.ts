@@ -7,6 +7,8 @@ import { ArticleDetailsComponent } from './pages/article-details/article-details
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthenticationGuard } from './services/authentication/authentication.guard';
+import { SignupComponent } from './pages/signup/signup.component';
+import { AccountComponent } from './pages/account/account.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,8 @@ const routes: Routes = [
     component: ContainerComponent,
     children: [
       { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'account', component: AccountComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',

@@ -3,6 +3,7 @@ import { NetworkService } from '../network/network.service';
 import { User } from 'src/app/models/user';
 import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,8 @@ export class AuthenticationService {
   private subject: BehaviorSubject<any> = new BehaviorSubject(null);
   constructor(
     private network: NetworkService,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelperService,
+    private htp: HttpClient
   ) {}
 
   login(username: string, password: string) {
@@ -48,5 +50,22 @@ export class AuthenticationService {
   logout() {
     localStorage.clear();
     this.subject.next(true);
+  }
+
+  getToken(user: User) {
+    return this.network.post(
+      'http://www.kttss.somee.com/api/Token',
+      {
+        fullname: user.fullname,
+        username: user.username,
+        password: user.password,
+      },
+      {
+        headers: new HttpHeaders({
+          'Content-type': 'application/json',
+          accept: 'application/json',
+        }),
+      }
+    );
   }
 }

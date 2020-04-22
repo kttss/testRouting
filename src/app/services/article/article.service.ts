@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NetworkService } from '../network/network.service';
 import { Article } from 'src/app/models/article';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root',
