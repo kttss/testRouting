@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
+import { LoggerService } from '../logger/logger.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ import { AuthenticationService } from './authentication.service';
 export class AuthenticationGuard implements CanActivate {
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private logService: LoggerService
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -26,6 +28,9 @@ export class AuthenticationGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.authService.isAuthenticate()) {
+      this.logService
+        .addActionToLog('navigation', state.url)
+        .then((data) => {});
       return true;
     } else {
       this.router.navigate(['./login']);

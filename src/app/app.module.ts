@@ -11,7 +11,7 @@ import { ArticleDetailsComponent } from './pages/article-details/article-details
 import { ArticleComponent } from './components/article/article.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeData } from './services/fake-api/fake-data';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
@@ -25,6 +25,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LogHistoriqueComponent } from './pages/log-historique/log-historique.component';
+import { LogsInterceptor } from './services/interceptor/logs.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     LoginComponent,
     SignupComponent,
     AccountComponent,
+    LogHistoriqueComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,13 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     }),
     LeafletModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogsInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

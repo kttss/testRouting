@@ -63,6 +63,7 @@ export class AccountComponent implements OnInit {
         Validators.required,
       ]),
     });
+    this.userForm.disable();
     this.getPosition().then((data: any) => {
       this.layers = [marker([data.latitude, data.longitude])];
       this.map.panTo(new LatLng(data.latitude, data.longitude));

@@ -2,6 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Article } from 'src/app/models/article';
 import { Category } from 'src/app/models/category';
 import { User } from 'src/app/models/user';
+import { Logger } from 'src/app/models/logger';
 
 export class FakeData implements InMemoryDbService {
   createDb() {
@@ -125,6 +126,15 @@ export class FakeData implements InMemoryDbService {
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZnVsbG5hbWUiOiJJc3NhbSBLQVRUT1VTUyIsInVzZXJuYW1lIjoia3R0c3MiLCJwYXNzd29yZCI6IjEyMyIsInRva2VuIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnpkV0lpT2lJeE1qTTBOVFkzT0Rrd0lpd2lablZzYkc1aGJXVWlPaUpwYzNOaGJTQnJZWFIwYjNWemN5SXNJblZ6WlhKdVlXMWxJam9pYTNSMGMzTWlMQ0p5YjJ4bElqb2lZV1J0YVc0aWZRLjhpejB2RzJwOUxlaDJGbkxIOWRLakRJQ2Z2SDhYOGJNbld2dFNydkRjU3MifQ.Kxs7ztf77vWgl0w72wB8i7KMNmZOaRfBy-_tba8KQDk',
       },
     ];
-    return { articles, categorys, users };
+    const logger: Logger[] = [
+      {
+        id: 0,
+        date: new Date(),
+        user: 'issa',
+        typeAction: 'get',
+        data: 'test',
+      },
+    ];
+    return { articles, categorys, users, logger };
   }
 }

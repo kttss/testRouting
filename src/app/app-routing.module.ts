@@ -9,15 +9,26 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthenticationGuard } from './services/authentication/authentication.guard';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AccountComponent } from './pages/account/account.component';
+import { LogHistoriqueComponent } from './pages/log-historique/log-historique.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ContainerComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent },
-      { path: 'account', component: AccountComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
+      {
+        path: 'account',
+        component: AccountComponent,
+        canActivate: [AuthenticationGuard],
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
@@ -42,6 +53,11 @@ const routes: Routes = [
       {
         path: 'edit-article/:id',
         component: ArticleFormComponent,
+        canActivate: [AuthenticationGuard],
+      },
+      {
+        path: 'logs',
+        component: LogHistoriqueComponent,
         canActivate: [AuthenticationGuard],
       },
     ],

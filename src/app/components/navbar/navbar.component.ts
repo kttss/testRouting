@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   public menu: Navbar[] = [
     { root: '/home', name: 'Home' },
     { root: '/articles', name: 'Articles' },
+    { root: '/logs', name: 'Historique' },
   ];
   public user: User;
   constructor(
