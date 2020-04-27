@@ -3,6 +3,8 @@ import { Article } from 'src/app/models/article';
 import { Category } from 'src/app/models/category';
 import { User } from 'src/app/models/user';
 import { Logger } from 'src/app/models/logger';
+import { Status } from 'src/app/models/status';
+import { Todo } from 'src/app/models/todo';
 
 export class FakeData implements InMemoryDbService {
   createDb() {
@@ -135,6 +137,58 @@ export class FakeData implements InMemoryDbService {
         data: 'test',
       },
     ];
-    return { articles, categorys, users, logger };
+    const status: Status[] = [
+      {
+        id: 1,
+        name: 'To do',
+      },
+      {
+        id: 2,
+        name: 'Started',
+      },
+      {
+        id: 3,
+        name: 'Completed',
+      },
+    ];
+    const todo: Todo[] = [
+      {
+        id: 1,
+        name: 'task 1: Numquam Cum de viderit ad.',
+        status: 1,
+        color: '#1973c0',
+      },
+      {
+        id: 2,
+        name: 'task 2: Quorum evitandum huius est quae.',
+        status: 1,
+        color: '#6eab72',
+      },
+      {
+        id: 3,
+        name: 'task 3: Et et et formidabatur et.',
+        status: 1,
+        color: '#2b96a9',
+      },
+      {
+        id: 4,
+        name: 'task 4: Si non quid omnia utilitatem.',
+        status: 2,
+        color: '#e29658',
+      },
+      {
+        id: 5,
+        name: 'task 5: Locum calamitosi ex aiunt quam.',
+        status: 2,
+        color: '#448f09',
+      },
+      {
+        id: 6,
+        name: 'task 6: Fors reginae ipsa tessera per.',
+        status: 3,
+        color: '#b839e6',
+      },
+    ];
+    return { articles, categorys, users, logger, status, todo };
   }
 }

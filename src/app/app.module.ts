@@ -18,7 +18,6 @@ import { FormFieldComponent } from './components/form-field/form-field.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -27,6 +26,13 @@ import { AccountComponent } from './pages/account/account.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LogHistoriqueComponent } from './pages/log-historique/log-historique.component';
 import { LogsInterceptor } from './services/interceptor/logs.interceptor';
+import { TodoComponent } from './pages/todo/todo.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TodoModalComponent } from './components/todo-modal/todo-modal.component';
+import { MaterialModule } from './shared/material/material.module';
+
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +49,8 @@ import { LogsInterceptor } from './services/interceptor/logs.interceptor';
     SignupComponent,
     AccountComponent,
     LogHistoriqueComponent,
+    TodoComponent,
+    TodoModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +63,6 @@ import { LogsInterceptor } from './services/interceptor/logs.interceptor';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MatDialogModule,
     CKEditorModule,
     JwtModule.forRoot({
       config: {
@@ -65,6 +72,9 @@ import { LogsInterceptor } from './services/interceptor/logs.interceptor';
       },
     }),
     LeafletModule,
+
+    MaterialModule,
+    ColorPickerModule,
   ],
   providers: [
     {

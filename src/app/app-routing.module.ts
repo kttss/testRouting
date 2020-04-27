@@ -10,6 +10,7 @@ import { AuthenticationGuard } from './services/authentication/authentication.gu
 import { SignupComponent } from './pages/signup/signup.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LogHistoriqueComponent } from './pages/log-historique/log-historique.component';
+import { TodoComponent } from './pages/todo/todo.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
         path: 'logs',
         component: LogHistoriqueComponent,
         canActivate: [AuthenticationGuard],
+      },
+      {
+        path: 'todo',
+        component: TodoComponent,
       },
     ],
   },

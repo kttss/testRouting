@@ -1,0 +1,36 @@
+<h2>To Do</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="todoForm">
+  <mat-form-field>
+    <mat-label>Name *</mat-label>
+    <app-form-field [control]="todoForm.controls.name">
+      <input matInput formControlName="name" />
+    </app-form-field>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <app-form-field [control]="todoForm.controls.status">
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let item of statusList" [value]="item.id">{{
+          item?.name
+        }}</mat-option>
+      </mat-select>
+    </app-form-field>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <app-form-field [control]="todoForm.controls.color">
+      <input
+        matInput
+        formControlName="color"
+        [(colorPicker)]="color"
+        (colorPickerChange)="selectColor($event)"
+        [style.background]="todoForm?.value?.color"
+      />
+    </app-form-field>
+  </mat-form-field>
+
+  <button mat-raised-button>Annuler</button>
+  <button mat-raised-button color="primary" class="ml-2">Submit</button>
+</form>
