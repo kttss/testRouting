@@ -32,6 +32,8 @@ import { TodoModalComponent } from './components/todo-modal/todo-modal.component
 import { MaterialModule } from './shared/material/material.module';
 
 import { ColorPickerModule } from 'ngx-color-picker';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CovidListComponent } from './pages/covid-list/covid-list.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     LogHistoriqueComponent,
     TodoComponent,
     TodoModalComponent,
+    NotFoundComponent,
+    CovidListComponent,
   ],
   imports: [
     BrowserModule,

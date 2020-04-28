@@ -11,6 +11,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LogHistoriqueComponent } from './pages/log-historique/log-historique.component';
 import { TodoComponent } from './pages/todo/todo.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CovidListComponent } from './pages/covid-list/covid-list.component';
 
 const routes: Routes = [
   {
@@ -64,6 +66,14 @@ const routes: Routes = [
       {
         path: 'todo',
         component: TodoComponent,
+      },
+      {
+        path: 'covid',
+        component: CovidListComponent,
+      },
+      {
+        path: '**',
+        component: NotFoundComponent,
       },
     ],
   },
