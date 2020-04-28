@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class NetworkService {
   constructor(private http: HttpClient) {}
 
-  public get(url: string): Promise<any> {
-    return this.http.get(url).toPromise();
+  public get(url: string, header: any = {}): Promise<any> {
+    return this.http.get(url, header).toPromise();
   }
 
   public post(url: string, body: any, header: any = {}): Promise<any> {
