@@ -13,6 +13,7 @@ import { LogHistoriqueComponent } from './pages/log-historique/log-historique.co
 import { TodoComponent } from './pages/todo/todo.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CovidListComponent } from './pages/covid-list/covid-list.component';
+import { CovidDetailsComponent } from './pages/covid-details/covid-details.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: 'covid',
         component: CovidListComponent,
+      },
+      {
+        path: 'covid/:country',
+        component: CovidDetailsComponent,
       },
       {
         path: '**',

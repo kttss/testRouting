@@ -3,6 +3,7 @@ import { NetworkService } from '../network/network.service';
 import { HttpHeaders } from '@angular/common/http';
 import { AutomapperService } from '../automapper/automapper.service';
 import { Covid } from 'src/app/models/covid';
+import { CovidDay } from 'src/app/models/covid-day';
 
 @Injectable({
   providedIn: 'root',
@@ -15,17 +16,28 @@ export class CovidService {
 
   getStatistique() {
     return this.network
-      .get('https://covid-193.p.rapidapi.com/statistics', {
-        headers: new HttpHeaders({
-          'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-          'x-rapidapi-key':
-            '18dba1c90amshae73bb19dc76ca6p11dcf8jsn127a6c7396cd',
-        }),
-      })
+      .get('https://api.covid19api.com/summary')
       .then((data) => {
         const result: Covid[] = this.automapper
           .JSONTOArrayCovid(data)
           .sort((a, b) => b.casesTotal - a.casesTotal);
+        return Promise.resolve(result);
+      });
+  }
+
+  getStatistiqueByCountry(country: string, from: string, to: string) {
+    console.log(from);
+    return this.network
+      .get(
+        'https://api.covid19api.com/country/' +
+          country +
+          '?from=' +
+          from +
+          '&to=' +
+          to
+      )
+      .then((data) => {
+        const result: CovidDay[] = this.automapper.JSONTOArrayCovidDay(data);
         return Promise.resolve(result);
       });
   }

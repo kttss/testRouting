@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CovidService } from 'src/app/services/covid/covid.service';
 import { Covid } from 'src/app/models/covid';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-covid-list',
@@ -11,28 +14,22 @@ export class CovidListComponent implements OnInit {
   constructor(private covidService: CovidService) {}
   displayedColumns: string[] = [
     'country',
-    'casesActive',
-    'casesNew',
-    'casesRecovered',
     'casesTotal',
-    'deathsNew',
+    'casesNew',
+    'recoveredTotal',
+    'recoveredNew',
     'deathsTotal',
-    'totalTests',
+    'deathsNew',
     'date',
   ];
-  dataSource: Covid[] = [];
-  data: Covid[] = [];
+  dataSource: MatTableDataSource<Covid> = new MatTableDataSource([]);
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit(): void {
     this.covidService.getStatistique().then((data) => {
-      this.data = data;
-      this.dataSource = this.data.slice(0, 10);
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
-  }
-
-  paginate(event) {
-    this.dataSource = this.data.slice(
-      event.pageIndex * event.pageSize,
-      (event.pageIndex + 1) * event.pageSize
-    );
   }
 }

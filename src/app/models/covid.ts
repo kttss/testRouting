@@ -1,11 +1,11 @@
 export class Covid {
   country: string;
-  casesActive: number;
+  countryCode: string;
   casesNew: string;
-  casesRecovered: number;
   casesTotal: number;
   deathsNew: string;
   deathsTotal: number;
-  totalTests: number;
+  recoveredNew: number;
+  recoveredTotal: number;
   date: Date;
 }

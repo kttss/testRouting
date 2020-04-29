@@ -8,8 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatBadgeModule } from '@angular/material/badge';
-
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -22,7 +21,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatBadgeModule,
+    MatSortModule,
   ],
 })
 export class MaterialModule {}

@@ -34,6 +34,8 @@ import { MaterialModule } from './shared/material/material.module';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CovidListComponent } from './pages/covid-list/covid-list.component';
+import { CovidDetailsComponent } from './pages/covid-details/covid-details.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { CovidListComponent } from './pages/covid-list/covid-list.component';
     TodoModalComponent,
     NotFoundComponent,
     CovidListComponent,
+    CovidDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ import { CovidListComponent } from './pages/covid-list/covid-list.component';
 
     MaterialModule,
     ColorPickerModule,
+    NgxChartsModule,
   ],
   providers: [
     {
