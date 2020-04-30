@@ -1,11 +1,11 @@
 <div class="chart-container">
-  <h2>Daily New Cases {{ country }}</h2>
+  <h2>{{'covid.chart.dailyTitle' | translate}} {{ country }}</h2>
   <ngx-charts-bar-vertical-2d [view]="[1200, 400]" [scheme]="colorScheme" [results]="multi" [xAxis]="true"
     [yAxis]="true" [legend]="true" [barPadding]="2" [groupPadding]="5">
   </ngx-charts-bar-vertical-2d>
 </div>
 <div class="chart-container">
-  <h2>Total Coronavirus Cases in {{ country }}</h2>
+  <h2>{{'covid.chart.totalTitle' | translate}} {{ country }}</h2>
   <ngx-charts-line-chart [view]="[1200, 400]" [scheme]="colorScheme" [legend]="true" [xAxis]="true" [yAxis]="true"
     [timeline]="true" [results]="chartdata">
   </ngx-charts-line-chart>

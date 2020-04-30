@@ -11,7 +11,11 @@ import { ArticleDetailsComponent } from './pages/article-details/article-details
 import { ArticleComponent } from './components/article/article.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeData } from './services/fake-api/fake-data';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClient,
+} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
@@ -37,7 +41,13 @@ import { CovidListComponent } from './pages/covid-list/covid-list.component';
 import { CovidDetailsComponent } from './pages/covid-details/covid-details.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MinimiseTextPipe } from './pipes/minimise-text.pipe';
 
+export function TranslationLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +70,7 @@ import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component
     CovidListComponent,
     CovidDetailsComponent,
     CovidInMapComponent,
+    MinimiseTextPipe,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +96,13 @@ import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component
     MaterialModule,
     ColorPickerModule,
     NgxChartsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: TranslationLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     {

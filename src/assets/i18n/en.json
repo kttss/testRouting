@@ -1,0 +1,53 @@
+{
+  "menu": {
+    "home": "Home",
+    "articles": "Articles",
+    "historique": "History",
+    "todo": "ToDo",
+    "covid": "Covid-19",
+    "covidMap": "Covid-Map",
+    "logout": "Logout"
+  },
+
+  "article": {
+    "titleAdd": "Creation of New Article",
+    "titleEdit": "Update Article",
+    "lastArticle": "the latest articles",
+    "category": "Category",
+    "title": "Title",
+    "photo": "Photo",
+    "content": "Content",
+    "new": "New Article",
+    "view": "View",
+    "filterby": "Filter by",
+    "actions": {
+      "like": "Like",
+      "edit": "Edit",
+      "delete": "Delete",
+      "add": "Add",
+      "cancel": "Cancel",
+      "readmore": "view more"
+    }
+  },
+  "todo": {
+    "todo": "todo",
+    "started": "started",
+    "completed": "completed"
+  },
+  "covid": {
+    "table": {
+      "country": "Country",
+      "totalCases": "Total Cases",
+      "newCases": "New cases",
+      "totalRecovered": "Total Recovered",
+      "newRecovered": "New Recovered",
+      "totalDeaths": "Total deaths",
+      "newDeaths": "New deaths",
+      "date": "Date Update"
+    },
+    "chart": {
+      "dailyTitle": "Daily New Cases in",
+      "totalTitle": "Total Coronavirus Cases in"
+    }
+  }
+}

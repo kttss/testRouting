@@ -1,16 +1,16 @@
 <div class="position-relative">
   <img [src]="article?.photo" class="article-Image" alt="Card image cap" />
   <div class="view-counts">
-    <span>{{ article?.view }} view |</span>
-    <span> {{ article?.like }} like</span>
+    <span>{{ article?.view }} {{'article.view' | translate}} |</span>
+    <span> {{ article?.like }} {{'article.actions.like' | translate}}</span>
   </div>
 </div>
 
 <div class="card-body">
   <h2 class="card-title">{{ article?.titre }}</h2>
   <p class="card-text">
-    {{ shortContent(article?.content) }}
-    <a [routerLink]="'/articles/' + article?.id">view more</a>
+    {{ article?.content | minimiseText: 200 }}
+    <a [routerLink]="'/articles/' + article?.id"> {{'article.actions.readmore' | translate}}e</a>
   </p>
 </div>
 <div class="card-footer">
@@ -18,14 +18,11 @@
     Last updated {{ gettimeFromNow(article?.creatAt) }}
   </small>
   <div class="btn-crud">
-    <button
-      class="btn btn-sm btn-link"
-      routerLink="/edit-article/{{ article?.id }}"
-    >
-      Edit
+    <button class="btn btn-sm btn-link" routerLink="/edit-article/{{ article?.id }}">
+      {{'article.actions.edit' | translate}}
     </button>
     <button class="btn btn-sm btn-link text-danger" (click)="openModal()">
-      Supprimer
+      {{'article.actions.delete' | translate}}
     </button>
   </div>
 </div>

@@ -1,14 +1,12 @@
 <div class="articles">
   <div class="row">
     <div class="col-md-8">
-      Filtre par :
+      {{ 'article.filterby' | translate}} :
       <form class="form-row" [formGroup]="filterForm">
         <div class="form-group col-md-4">
-          <label class="" for="category">Category</label>
+          <label class="" for="category">{{'article.category' | translate}}</label>
           <select class="form-control" id="category" formControlName="category">
-            <option value="all"
-              >all <small> - {{ listArticlesData?.length }} </small></option
-            >
+            <option value="all">all <small> - {{ listArticlesData?.length }} </small></option>
             <option *ngFor="let item of listCategorys" [value]="item?.id">{{
               item?.name + " - " + getCountArticlesByCategory(item?.id)
             }}</option>
@@ -16,19 +14,14 @@
         </div>
 
         <div class="form-group col-md-8">
-          <label class="" for="titre">Titre</label>
-          <input
-            type="text"
-            class="form-control"
-            id="titre"
-            formControlName="titre"
-          />
+          <label class="" for="titre">{{'article.title' | translate}}</label>
+          <input type="text" class="form-control" id="titre" formControlName="titre" />
         </div>
       </form>
     </div>
     <div class="col-md-4 min-h-50">
       <button class="btn btn-primary btn-new" routerLink="/new-article">
-        Nouveau Article
+        {{'article.new' | translate}}
       </button>
     </div>
     <div class="col-md-12 pb-2">
@@ -40,11 +33,7 @@
 
   <div class="card-deck">
     <ng-container *ngFor="let item of listArticles">
-      <app-article
-        class="card"
-        [article]="item"
-        (removed)="getAllArticles()"
-      ></app-article>
+      <app-article class="card" [article]="item" (removed)="getAllArticles()"></app-article>
     </ng-container>
   </div>
 </div>

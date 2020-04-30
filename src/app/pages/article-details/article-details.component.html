@@ -1,16 +1,16 @@
 <div class="article-details">
-  <a class="btn btn-link pl-0 text-primary" (click)="back()">Retour</a>
+  <a class="btn btn-link pl-0 text-primary" (click)="back()">{{'article.actions.cancel' | translate}}</a>
 
   <img class="article-details__image" [src]="article?.photo" alt="" />
   <h2 class="article-details__titre">{{ article?.titre }}</h2>
   <div class="article-details__date">
     Le {{ article?.creatAt | date: "medium" }}
-    <span>- ( {{ article?.like }} liked )</span>
-    <button *ngIf="!liked" class="btn btn-link" (click)="like()">Like</button>
+    <span>- ( {{ article?.like }} {{'article.actions.like' | translate}} )</span>
+    <button *ngIf="!liked" class="btn btn-link" (click)="like()">{{'article.actions.like' | translate}}</button>
     <button class="btn btn-link" routerLink="/edit-article/{{ article?.id }}">
-      Edit
+      {{'article.actions.edit' | translate}}
     </button>
-    <button class="btn btn-link" (click)="openModal()">Supprimer</button>
+    <button class="btn btn-link" (click)="openModal()">{{'article.actions.delete' | translate}}</button>
   </div>
   <div class="article-details_text" [innerHTML]="article?.content"></div>
 </div>

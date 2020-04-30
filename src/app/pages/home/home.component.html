@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 mt-3">
-    <h1>Last Articles</h1>
+    <h1>Last Articles{{'article.lastArticle' | translate}}</h1>
   </div>
 </div>
 <div class="row">
@@ -11,7 +11,7 @@
       </a>
       <div class="block-title">
         <h2>{{articles[0]?.titre}}</h2>
-        <p class="description"><small>{{shortContent(articles[0]?.content)}}</small></p>
+        <p class="description"><small>{{articles[0]?.content | minimiseText:100}}</small></p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
         </a>
         <div class="media-body">
           <h3>{{item?.titre}}</h3>
-          <p class="description">{{shortContent(item?.content)}}</p>
+          <p class="description">{{item?.content |  minimiseText:100}}</p>
         </div>
       </li>
     </ul>

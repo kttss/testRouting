@@ -1,17 +1,17 @@
-<h2 *ngIf="!isEdit" class="pt-3">Creation de Nouveau Article</h2>
-<h2 *ngIf="isEdit" class="pt-3">Modification Article</h2>
+<h2 *ngIf="!isEdit" class="pt-3">{{'article.titleAdd' | translate}}</h2>
+<h2 *ngIf="isEdit" class="pt-3">{{'article.titleEdit' | translate}}</h2>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
   <div class="form-row">
     <div class="form-group col-md-8">
-      <label for="titre">Titre *</label>
+      <label for="titre">{{'article.title' | translate}} *</label>
       <app-form-field [control]="articleForm.controls.titre">
         <input type="email" class="form-control" formControlName="titre" id="titre"
           [class.is-invalid]="checkInValid(articleForm?.controls?.titre)" placeholder="Titre" />
       </app-form-field>
     </div>
     <div class="form-group col-md-4">
-      <label for="category">Category *</label>
+      <label for="category">{{'article.category' | translate}} *</label>
       <app-form-field [control]="articleForm.controls.category">
         <select id="category" class="form-control" formControlName="category"
           [class.is-invalid]="checkInValid(articleForm?.controls?.category)">
@@ -22,14 +22,14 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Photo *</label>
+    <label for="inputAddress">{{'article.photo' | translate}} *</label>
     <app-form-field [control]="articleForm.controls.photo">
       <input type="text" class="form-control" [class.is-invalid]="checkInValid(articleForm?.controls?.photo)"
         id="inputAddress" formControlName="photo" placeholder="URL" />
     </app-form-field>
   </div>
   <div class="form-group">
-    <label for="content">Content *</label>
+    <label for="content">{{'article.content' | translate}} *</label>
     <app-form-field [control]="articleForm.controls.content">
       <textarea [class.is-invalid]="checkInValid(articleForm?.controls?.content)" id="content" class="form-control"
         cols="30" formControlName="content" rows="8"></textarea>
@@ -38,8 +38,9 @@
     <ckeditor [editor]="Editor" [(ngModel)]="editorContent" [ngModelOptions]="{ standalone: true }"
       (change)="onChange($event)"></ckeditor>
   </div>
-  <button type="button" class="btn btn-link" (click)="back()">Retour</button>
+  <button type="button" class="btn btn-link" (click)="back()">{{'article.actions.cancel' | translate}}</button>
   <button type="submit" class="btn btn-primary">
-    {{ isEdit ? "Modifier" : "Ajouter" }}
+    <span *ngIf="isEdit">{{'article.actions.edit' | translate}}</span>
+    <span *ngIf="!isEdit">{{'article.actions.add' | translate}}</span>
   </button>
 </form>

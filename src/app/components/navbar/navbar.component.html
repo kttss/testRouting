@@ -3,9 +3,21 @@
   <div class="navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngFor="let item of menu">
-        <a class="nav-link" [routerLink]="item.root" routerLinkActive="active">{{ item.name }}</a>
+        <a class="nav-link" [routerLink]="item.root" routerLinkActive="active">{{ item.name | translate }}</a>
       </li>
     </ul>
+  </div>
+  <div>
+    <mat-form-field class="list-lang">
+      <mat-select [(value)]="selectedLanguage" (selectionChange)="useLanguage($event)">
+        <mat-select-trigger>
+          <img class="lang" src="./assets/{{selectedLanguage}}.png">
+        </mat-select-trigger>
+        <mat-option *ngFor="let item of langs" [value]="item">
+          <img class="lang" src="./assets/{{item}}.png">
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <!-- <div class="pull-right">
@@ -27,7 +39,7 @@
       {{ user?.fullname }}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" (click)="logout()">Logout</a>
+      <a class="dropdown-item" (click)="logout()">{{'menu.logout' | translate}}</a>
     </div>
   </div>
 </nav>

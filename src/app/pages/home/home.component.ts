@@ -16,10 +16,4 @@ export class HomeComponent implements OnInit {
       this.articles = data;
     });
   }
-
-  shortContent(value: string): string {
-    return value && value.length > 200
-      ? value.substring(0, 100) + '...'
-      : value;
-  }
 }

@@ -26,6 +26,8 @@
     "@auth0/angular-jwt": "^4.0.0",
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-build-classic": "^18.0.0",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@swimlane/ngx-charts": "^14.0.0",
     "angular-in-memory-web-api": "^0.10.0",
     "bootstrap": "^4.4.1",
