@@ -36,6 +36,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CovidListComponent } from './pages/covid-list/covid-list.component';
 import { CovidDetailsComponent } from './pages/covid-details/covid-details.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     NotFoundComponent,
     CovidListComponent,
     CovidDetailsComponent,
+    CovidInMapComponent,
   ],
   imports: [
     BrowserModule,

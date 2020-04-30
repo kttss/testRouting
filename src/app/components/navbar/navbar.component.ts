@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
     { root: '/logs', name: 'Historique' },
     { root: '/todo', name: 'ToDo' },
     { root: '/covid', name: 'Covid-19' },
+    { root: '/map', name: 'Covid-Map' },
   ];
   public user: User;
   constructor(

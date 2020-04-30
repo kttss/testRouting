@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Covid } from 'src/app/models/covid';
 import { CovidDay } from 'src/app/models/covid-day';
+import { CovidMap } from 'src/app/models/covid-map';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +52,25 @@ export class AutomapperService {
     const result: CovidDay[] = [];
     obj.map((item, i) => {
       result.push(this.JSONToCovidDayObject(item, obj[i - 1]));
+    });
+    return result;
+  }
+
+  JSONTOCovidMapObject(obj): CovidMap {
+    const covidmap: CovidMap = new CovidMap();
+    covidmap.country = obj.displayName || obj.country;
+    covidmap.cases = obj.cases;
+    covidmap.recovered = obj.recovered;
+    covidmap.deaths = obj.deaths;
+    covidmap.lat = obj.lat;
+    covidmap.long = obj.long;
+    return covidmap;
+  }
+
+  JSONTOArrayCovidMap(obj): CovidMap[] {
+    const result: CovidMap[] = [];
+    obj.records.map((item) => {
+      result.push(this.JSONTOCovidMapObject(item));
     });
     return result;
   }

@@ -14,6 +14,7 @@ import { TodoComponent } from './pages/todo/todo.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CovidListComponent } from './pages/covid-list/covid-list.component';
 import { CovidDetailsComponent } from './pages/covid-details/covid-details.component';
+import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component';
 
 const routes: Routes = [
   {
@@ -67,14 +68,22 @@ const routes: Routes = [
       {
         path: 'todo',
         component: TodoComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'covid',
         component: CovidListComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: 'covid/:country',
         component: CovidDetailsComponent,
+        canActivate: [AuthenticationGuard],
+      },
+      {
+        path: 'map',
+        component: CovidInMapComponent,
+        canActivate: [AuthenticationGuard],
       },
       {
         path: '**',

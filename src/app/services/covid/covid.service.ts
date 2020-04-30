@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { AutomapperService } from '../automapper/automapper.service';
 import { Covid } from 'src/app/models/covid';
 import { CovidDay } from 'src/app/models/covid-day';
+import { CovidMap } from 'src/app/models/covid-map';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,17 @@ export class CovidService {
         const result: Covid[] = this.automapper
           .JSONTOArrayCovid(data)
           .sort((a, b) => b.casesTotal - a.casesTotal);
+        return Promise.resolve(result);
+      });
+  }
+
+  getStatistiqueMap() {
+    return this.network
+      .get(
+        'https://coviddataapi-env.ca-central-1.elasticbeanstalk.com/api/getData?dataType=globalMapSummary'
+      )
+      .then((data) => {
+        const result: CovidMap[] = this.automapper.JSONTOArrayCovidMap(data);
         return Promise.resolve(result);
       });
   }
