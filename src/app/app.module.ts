@@ -46,7 +46,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MinimiseTextPipe } from './pipes/minimise-text.pipe';
 
 export function TranslationLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, '/', '.json');
 }
 @NgModule({
   declarations: [

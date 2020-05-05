@@ -8,6 +8,8 @@ export class MinimiseTextPipe implements PipeTransform {
     if (!args[0]) {
       args[0] = 100;
     }
-    return value.length > args[0] ? value.substring(0, args[0]) + '...' : value;
+    return (value && value.length) > args[0]
+      ? value.substring(0, args[0]) + '...'
+      : value;
   }
 }

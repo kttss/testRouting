@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.getInfoUser();
-    this.selectedLanguage = localStorage.getItem('lang');
+    this.selectedLanguage = localStorage.getItem('lang') || 'fr';
   }
 
   logout() {
