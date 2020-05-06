@@ -36,8 +36,12 @@
     "moment": "^2.24.0",
     "ngx-color-picker": "^9.1.0",
     "ngx-toastr": "^12.0.1",
+    "ngx-uploader": "^8.0.0",
+    "read-excel-file": "^4.0.6",
     "rxjs": "~6.5.4",
+    "stream": "0.0.2",
     "tslib": "^1.10.0",
+    "xlsx": "^0.16.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

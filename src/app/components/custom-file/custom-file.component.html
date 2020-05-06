@@ -1,0 +1,12 @@
+<button mat-button (click)="file.click()" color="primary" class="d-center">
+  <mat-icon>attachment</mat-icon>
+  Choisir File</button
+><span class="filename" [class.d-none]="!filename">( {{ filename }} )</span>
+<div class="d-center"></div>
+<input
+  type="file"
+  #file
+  class="d-none"
+  accept="{{ typeFile }}"
+  (change)="onChange($event)"
+/>

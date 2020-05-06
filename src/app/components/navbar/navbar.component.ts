@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     { root: '/todo', name: 'menu.todo' },
     { root: '/covid', name: 'menu.covid' },
     { root: '/map', name: 'menu.covidMap' },
+    { root: '/excel/stepper', name: 'menu.excel' },
   ];
   public user: User;
 

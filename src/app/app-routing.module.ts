@@ -86,6 +86,13 @@ const routes: Routes = [
         canActivate: [AuthenticationGuard],
       },
       {
+        path: 'excel',
+        loadChildren: () =>
+          import('./modules/read-excel/read-excel.module').then(
+            (m) => m.ReadExcelModule
+          ),
+      },
+      {
         path: '**',
         component: NotFoundComponent,
       },

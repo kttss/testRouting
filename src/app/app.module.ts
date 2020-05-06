@@ -44,10 +44,14 @@ import { CovidInMapComponent } from './pages/covid-in-map/covid-in-map.component
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MinimiseTextPipe } from './pipes/minimise-text.pipe';
+import { ReadExcelModule } from './modules/read-excel/read-excel.module';
+import { CustomFileComponent } from './components/custom-file/custom-file.component';
 
 export function TranslationLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/', '.json');
+  return new TranslateHttpLoader(http);
 }
+
+// , '/', '.json'
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +77,6 @@ export function TranslationLoaderFactory(http: HttpClient) {
     MinimiseTextPipe,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(FakeData, {
       passThruUnknownUrl: true,
@@ -103,6 +106,7 @@ export function TranslationLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    ReadExcelModule,
   ],
   providers: [
     {
